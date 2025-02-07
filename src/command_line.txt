@@ -1,0 +1,16 @@
+命令：
+打开界面： llamafactory-cli webui
+
+lora微调：
+llamafactory-cli train examples/train_lora/qwen2.5_lora_sft.yaml
+
+qlora微调：
+llamafactory-cli train examples/train_qlora/qwen2.5_lora_sft_awq.yaml
+
+qwen-2.5-7b目录：
+/media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
+
+
+lora模型目录：
+/media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft
+/media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft_awq
