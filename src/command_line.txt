@@ -2,10 +2,10 @@
 打开界面： llamafactory-cli webui
 
 lora微调：
-llamafactory-cli train examples/train_lora/qwen2.5_lora_sft.yaml
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5_lora_sft.yaml
 
 qlora微调：
-llamafactory-cli train examples/train_qlora/qwen2.5_lora_sft_awq.yaml
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5_lora_sft_awq.yaml
 
 qwen-2.5-7b目录：
 /media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
