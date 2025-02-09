@@ -2,10 +2,18 @@
 打开界面： llamafactory-cli webui
 
 lora微调：
-CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5_lora_sft.yaml
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_dpo.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_ppo.yaml  #失败显存溢出
 
 qlora微调：
-CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5_lora_sft_awq.yaml
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_awq.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_gptq.yaml  #成功
+
+deepseepd:
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds3.yaml  #成功
+
 
 qwen-2.5-7b目录：
 /media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
