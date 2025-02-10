@@ -13,6 +13,10 @@ CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwe
 
 deepseepd:
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds3.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds3_offload.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds0.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2_offload.yaml   #
 
 
 qwen-2.5-7b目录：
