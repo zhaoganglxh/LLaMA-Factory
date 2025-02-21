@@ -29,8 +29,11 @@ CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2_offload.yaml   #成功
 
-eval:
-CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_eval.yaml   #
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_eval.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_kto.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_pretrain.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ray.yaml   #成功
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_preprocess.yaml   #
 
 qwen-2.5-7b目录：
 /media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
