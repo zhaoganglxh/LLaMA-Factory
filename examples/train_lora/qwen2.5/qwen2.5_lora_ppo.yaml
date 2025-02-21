@@ -9,9 +9,12 @@ do_train: true
 finetuning_type: lora
 lora_rank: 8
 lora_target: all
+pref_beta: 0.1
+pref_loss: sigmoid  # choices: [sigmoid (dpo), orpo, simpo]
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
 
 ### dataset
-dataset: identity_tpri
+dataset: identity,alpaca_en_demo
 template: qwen
 cutoff_len: 2048
 max_samples: 1000

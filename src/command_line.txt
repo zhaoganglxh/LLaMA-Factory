@@ -4,20 +4,33 @@
 lora微调：
 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_dpo.yaml  #失败显存溢出
+   z0_config失败：  z2_config失败：   z0_offload_config：失败   z2_offload_config：失败    ds_z3_offload_config:成功
+
 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward.yaml  #失败显存溢出
-CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_ppo.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward_ds3_offload.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward_ds3.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward_ds2_offload.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward_ds2.yaml  #失败显存溢出
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_reward_ds0.yaml  #失败显存溢出
+
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_ppo.yaml  #失败
 
 qlora微调：
 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_awq.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_gptq.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_bnb_npu.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_otfq.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/train_qlora/qwen2.5/qwen2.5_lora_sft_otfq.yaml  #成功
 
 deepseepd:
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds3.yaml  #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds3_offload.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds0.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2.yaml   #成功
-CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2_offload.yaml   #
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ds2_offload.yaml   #成功
 
+eval:
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_eval.yaml   #
 
 qwen-2.5-7b目录：
 /media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
@@ -26,3 +39,5 @@ qwen-2.5-7b目录：
 lora模型目录：
 /media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft
 /media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft_awq
+
+是否nvlink
