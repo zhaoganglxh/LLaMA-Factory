@@ -8,9 +8,12 @@ do_train: true
 finetuning_type: lora
 lora_rank: 8
 lora_target: all
+pissa_init: true
+pissa_iter: 16
+pissa_convert: true
 
 ### dataset
-dataset: identity_tpri
+dataset: identity_tpri,alpaca_en_demo
 template: qwen
 cutoff_len: 2048
 max_samples: 1000
@@ -18,7 +21,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen-2.5-7b/qlora/sft_gptq
+output_dir: saves/qwen-2.5-7b/lora/sft_pissa
 logging_steps: 10
 save_steps: 500
 plot_loss: true

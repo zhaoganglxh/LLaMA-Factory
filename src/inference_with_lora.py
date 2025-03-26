@@ -5,7 +5,7 @@ import torch
 from transformers import TextStreamer
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"  # 确保环境变量设置正确
-base_model_name = "/media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b/"
+base_model_name = "/home/zhaogang/sources_linux/models/qwen-2.5-7b/"
 #lora_model_path = "/media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft"
 lora_model_path = "/media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/dpo"
 #lora_model_path = "/media/zhaogang/4T2-2-LLM/sources_linux/LLaMA-Factory/saves/qwen-2.5-7b/lora/sft_cuda0"

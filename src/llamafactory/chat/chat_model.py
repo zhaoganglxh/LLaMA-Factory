@@ -48,9 +48,18 @@ class ChatModel:
     def __init__(self, args: Optional[Dict[str, Any]] = None) -> None:
         model_args, data_args, finetuning_args, generating_args = get_infer_args(args)
         self.engine_type = model_args.infer_backend
+        # 手动读取并应用dtype参数
+        dtype = "float16"  # 默认值
+        # if args and args.dtype:
+        #     dtype = args.dtype
+
         if model_args.infer_backend == "huggingface":
             self.engine: "BaseEngine" = HuggingfaceEngine(model_args, data_args, finetuning_args, generating_args)
         elif model_args.infer_backend == "vllm":
+            model_args.infer_dtype = dtype
+            print("==================")
+            print(model_args)
+            print("==================")
             self.engine: "BaseEngine" = VllmEngine(model_args, data_args, finetuning_args, generating_args)
         else:
             raise NotImplementedError(f"Unknown backend: {model_args.infer_backend}")

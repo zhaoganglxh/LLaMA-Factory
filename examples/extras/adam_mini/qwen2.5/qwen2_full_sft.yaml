@@ -5,12 +5,11 @@ trust_remote_code: true
 ### method
 stage: sft
 do_train: true
-finetuning_type: lora
-lora_rank: 8
-lora_target: all
+finetuning_type: full
+use_adam_mini: true
 
 ### dataset
-dataset: identity_tpri
+dataset: identity_tpri,alpaca_en_demo
 template: qwen
 cutoff_len: 2048
 max_samples: 1000
@@ -18,7 +17,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen-2.5-7b/qlora/sft_gptq
+output_dir: saves/qwen-2.5-7b/full/sft_fdsp_qlora
 logging_steps: 10
 save_steps: 500
 plot_loss: true
@@ -27,7 +26,7 @@ overwrite_output_dir: true
 ### train
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
-learning_rate: 1.0e-4
+learning_rate: 1.0e-5
 num_train_epochs: 3.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1

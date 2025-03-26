@@ -1,0 +1,12 @@
+### model
+model_name_or_path: /home/zhaogang/sources_linux/models/qwen-2.5-7b
+template: qwen
+trust_remote_code: true
+
+### export
+export_dir: models/qwen2.5_gptq_cuda
+export_quantization_bit: 4
+export_quantization_dataset: data/c4_demo.json
+export_size: 2
+export_device: cuda
+export_legacy_format: false

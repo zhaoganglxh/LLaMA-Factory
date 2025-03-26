@@ -71,7 +71,7 @@ def vllm_infer(
             top_p=top_p,
             top_k=top_k,
             max_new_tokens=max_new_tokens,
-            repetition_penalty=repetition_penalty,
+            repetition_penalty=repetition_penalty
         )
     )
 
@@ -114,7 +114,8 @@ def vllm_infer(
     engine_args = {
         "model": model_args.model_name_or_path,
         "trust_remote_code": True,
-        "dtype": model_args.infer_dtype,
+        # "dtype": model_args.infer_dtype,
+        "dtype": "float",
         "tensor_parallel_size": (get_device_count() // pipeline_parallel_size) or 1,
         "pipeline_parallel_size": pipeline_parallel_size,
         "disable_log_stats": True,

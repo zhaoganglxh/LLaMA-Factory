@@ -33,10 +33,38 @@ CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_kto.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_pretrain.yaml   #成功
 CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_lora_sft_ray.yaml   #成功
-CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_preprocess.yaml   #
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_lora/qwen2.5/qwen2.5_preprocess.yaml   #成功
+
+train_full:
+CUDA_VISIBLE_DEVICES=0,1 FORCE_TORCHRUN=1 llamafactory-cli train examples/train_full/qwen2.5/qwen2.5_full_sft.yaml   #成功
+   #z3_offload 内存不足，失败
+
+inference:
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli chat examples/inference/qwen2.5/qwen2.5.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli chat examples/inference/qwen2.5/qwen2.5_lora_sft.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli chat examples/inference/qwen2.5/qwen2.5_vllm.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli webchat examples/inference/qwen2.5/qwen2.5.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli api examples/inference/qwen2.5/qwen2.5.yaml  #成功
+
+extras:
+pissa:   CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/pissa/qwen2.5/qwen2.5_lora_sft.yaml  #成功
+pissa-init.sh:        python scripts/pissa_init.py     --model_name_or_path /home/zhaogang/sources_linux/models/qwen-2.5-7b     --output_dir saves/qwen-2.5-7b/qwen2.5-7b-pissa-init   #成功
+nlg_eval:  CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/nlg_eval/qwen2.5/qwen2.5_lora_predict.yaml  #成功
+loraplus:  CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/loraplus/qwen2.5/qwen2.5_lora_sft.yaml   #成功
+llama_pro: CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/llama_pro/qwen2.5/qwen2.5_freeze_sft.yaml   #成功  使用了DeepSpeed Z3 Offload方式
+fsdp_qlora: examples/extras/fsdp_qlora/qwen2.5/train.sh  #成功
+adam_mini: CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/adam_mini/qwen2.5/qwen2_full_sft.yaml   #提示未找到 adam-mini ，需要执行 pip install adam-mini，然后运行之后显存溢出
+apollo: CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train examples/extras/apollo/qwen2.5/qwen2.5_full_sft.yaml   ##失败显存溢出
+
+model_lora_merge:
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli export examples/merge_lora/qwen2.5/qweb2.5_lora_sft.yaml  #成功
+CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli export examples/merge_lora/qwen2.5/qwen2.5_gptq.yaml #成功
+
+scripts/vllm_infer:
+CUDA_VISIBLE_DEVICES=0,1 python scripts/vllm_infer.py -model_name_or_path /home/zhaogang/sources_linux/models/qwen-2.5-7b --dataset alpaca_en_demo #失败，dtype类型不支持
 
 qwen-2.5-7b目录：
-/media/zhaogang/4T2-2-LLM/HuggingFace/models/qwen/qwen-2.5-7b
+/home/zhaogang/sources_linux/models/qwen-2.5-7b
 
 
 lora模型目录：

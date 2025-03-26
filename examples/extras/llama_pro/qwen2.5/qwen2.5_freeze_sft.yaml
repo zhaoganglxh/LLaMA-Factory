@@ -5,12 +5,14 @@ trust_remote_code: true
 ### method
 stage: sft
 do_train: true
-finetuning_type: lora
-lora_rank: 8
-lora_target: all
+finetuning_type: freeze
+freeze_trainable_layers: 4
+freeze_trainable_modules: all
+use_llama_pro: true
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
 
 ### dataset
-dataset: identity_tpri
+dataset: identity_tpri,alpaca_en_demo
 template: qwen
 cutoff_len: 2048
 max_samples: 1000
@@ -18,7 +20,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen-2.5-7b/qlora/sft_gptq
+output_dir: saves/qwen-2.5-7b/freeze/sft
 logging_steps: 10
 save_steps: 500
 plot_loss: true
